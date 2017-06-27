@@ -1,5 +1,5 @@
 # FreeBSD-Mod-makefiles
-My own adjustments to Makefiles for FreeBSD ports, to remove dependencies or other improvements.
+My own adjustments to Makefiles for FreeBSD ports, to remove dependencies or for other improvements.
 
 Due to my own frustration that some ports include gratuitous dependencies, I began creating a revised Makefile for each which successfully removed them.  As an example, I do not use KDE as my desktop environment but utilities (Kate is one) built to run under KDE assume certain daemons or other functions (kactivities) that will not exist on my system and are otherwise entirely unneeded.  
 
