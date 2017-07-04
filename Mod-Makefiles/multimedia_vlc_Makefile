@@ -38,16 +38,16 @@ INSTALL_TARGET=	install-strip
 CONFLICTS?=	vlc-qt4-*
 
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--disable-minizip --enable-avcodec --enable-avformat --enable-dvbpsi \
+CONFIGURE_ARGS=	--enable-avcodec --enable-avformat --enable-dvbpsi \
 		--enable-fontconfig --enable-freetype --enable-libgcrypt \
 		--enable-libxml2 --enable-oss --enable-postproc \
 		--enable-swscale --enable-vlc \
 		--disable-alsa --disable-chromaprint --disable-crystalhd \
 		--disable-dc1394 --disable-decklink --disable-directfb \
-		--disable-dv1394 --disable-egl --disable-fdkaac \
+		--disable-dv1394 --disable-fdkaac \
 		--disable-gles1 --disable-gles2 --disable-kai --disable-kva \
-		--disable-libvnc --disable-opencv --disable-projectm \
-		--disable-quicksync --disable-telx \
+		--disable-opencv --disable-projectm \
+		--disable-telx \
 		--disable-tiger --disable-tremor --disable-udev \
 		--disable-update-check --disable-vcdx --disable-vsxu \
 		--disable-wasapi --disable-x26410b \
@@ -116,7 +116,7 @@ DCA_LIB_DEPENDS=	libdca.so:multimedia/libdca
 DCA_CONFIGURE_ENABLE=	dca
 
 DIRAC_LIB_DEPENDS=	libdirac_decoder.so:multimedia/dirac
-DIRAC_CONFIGURE_ENABLE=	dirac
+#DIRAC_CONFIGURE_ENABLE=	dirac
 
 DVDREAD_LIB_DEPENDS=	libdvdread.so:multimedia/libdvdread
 DVDREAD_CONFIGURE_ENABLE=	dvdread
@@ -311,7 +311,7 @@ VORBIS_CONFIGURE_ENABLE=vorbis
 
 X11_USE=		GL=gl XORG=xcb,xproto
 X11_LIB_DEPENDS=	libxcb-keysyms.so:x11/xcb-util-keysyms
-X11_CONFIGURE_ENABLE=	glx xcb xvideo
+X11_CONFIGURE_ENABLE=	xcb xvideo #glx
 X11_CONFIGURE_WITH=	x
 
 X264_LIB_DEPENDS=	libx264.so:multimedia/libx264
