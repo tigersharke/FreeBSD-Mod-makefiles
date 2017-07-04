@@ -347,7 +347,8 @@ IGNORE=	please choose one of QT4 or QT5
 
 .if ${PORT_OPTIONS:MSKINS}
 .if ${PORT_OPTIONS:MQT5} || ${PORT_OPTIONS:MQT4}
-LIB_DEPENDS+=	#libminizip.so:archivers/minizip \
+LIB_DEPENDS+=	libzip.so:archivers/libzip \
+		#libminizip.so:archivers/minizip \
 		libtar.so:devel/libtar
 USE_XORG+=	xext xinerama xpm
 CONFIGURE_ARGS+=--enable-skins2 --enable-libtar
