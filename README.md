@@ -7,5 +7,5 @@ The Makefiles are named for their port-origin and rather than using a diff syste
 
 Of course I could spend time chatting with port maintainers or pick up the maintainership of any port, but since I tend to be a solitary operator wishing my own odd variation on my box which could break many things.. well, for the moment at least this is my personal solution to my frustration and a guaranteed fix that I do not need to wait to be approved or applied to any port.
 
-## Future concept
+# Future concept
 A universal configuration makefile options config. Here you would choose what sound system to use, which browser, yadda yadda, and all conflicts and redundancies would be handled.  Yes, it is possible via /etc/make.conf to set or unset various options but without having exhaustively researched each and every possible interdependent port, you will not know how to write it.  This and the other mod-makefiles effort would be entirely useable via synth or portmaster or whatever port building automation tool you wish.
