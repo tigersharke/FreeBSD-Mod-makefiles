@@ -1,0 +1,44 @@
+--- /usr/ports/multimedia/vlc/Makefile	2017-05-26 02:23:20.000000000 -0500
++++ /root/FreeBSD-Mod-makefiles/Mod-Makefiles/multimedia_vlc_Makefile	2017-07-04 05:51:01.888271000 -0500
+@@ -44,10 +44,10 @@
+ 		--enable-swscale --enable-vlc \
+ 		--disable-alsa --disable-chromaprint --disable-crystalhd \
+ 		--disable-dc1394 --disable-decklink --disable-directfb \
+-		--disable-dv1394 --disable-egl --disable-fdkaac \
++		--disable-dv1394 --disable-fdkaac \
+ 		--disable-gles1 --disable-gles2 --disable-kai --disable-kva \
+-		--disable-libvnc --disable-opencv --disable-projectm \
+-		--disable-quicksync --disable-telx \
++		--disable-opencv --disable-projectm \
++		--disable-telx \
+ 		--disable-tiger --disable-tremor --disable-udev \
+ 		--disable-update-check --disable-vcdx --disable-vsxu \
+ 		--disable-wasapi --disable-x26410b \
+@@ -116,7 +116,7 @@
+ DCA_CONFIGURE_ENABLE=	dca
+ 
+ DIRAC_LIB_DEPENDS=	libdirac_decoder.so:multimedia/dirac
+-DIRAC_CONFIGURE_ENABLE=	dirac
++#DIRAC_CONFIGURE_ENABLE=	dirac
+ 
+ DVDREAD_LIB_DEPENDS=	libdvdread.so:multimedia/libdvdread
+ DVDREAD_CONFIGURE_ENABLE=	dvdread
+@@ -311,7 +311,7 @@
+ 
+ X11_USE=		GL=gl XORG=xcb,xproto
+ X11_LIB_DEPENDS=	libxcb-keysyms.so:x11/xcb-util-keysyms
+-X11_CONFIGURE_ENABLE=	glx xcb xvideo
++X11_CONFIGURE_ENABLE=	xcb xvideo #glx
+ X11_CONFIGURE_WITH=	x
+ 
+ X264_LIB_DEPENDS=	libx264.so:multimedia/libx264
+@@ -347,7 +347,8 @@
+ 
+ .if ${PORT_OPTIONS:MSKINS}
+ .if ${PORT_OPTIONS:MQT5} || ${PORT_OPTIONS:MQT4}
+-LIB_DEPENDS+=	libminizip.so:archivers/minizip \
++LIB_DEPENDS+=	libzip.so:archivers/libzip \
++		#libminizip.so:archivers/minizip \
+ 		libtar.so:devel/libtar
+ USE_XORG+=	xext xinerama xpm
+ CONFIGURE_ARGS+=--enable-skins2 --enable-libtar

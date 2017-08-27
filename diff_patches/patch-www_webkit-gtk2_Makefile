@@ -1,0 +1,31 @@
+--- /usr/ports/www/webkit-gtk2/Makefile	2017-05-23 00:03:14.000000000 -0500
++++ /root/FreeBSD-Mod-makefiles/Mod-Makefiles/www_webkit-gtk2_Makefile	2017-06-27 02:37:22.673570000 -0500
+@@ -14,8 +14,8 @@
+ 
+ BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
+ 		p5-Switch>0:lang/p5-Switch \
+-		python:lang/python \
+-		geoclue>=0:net/geoclue
++		python:lang/python #\
++#		geoclue>=0:net/geoclue
+ LIB_DEPENDS=	libenchant.so:textproc/enchant \
+ 		libsecret-1.so:security/libsecret \
+ 		libicutu.so:devel/icu \
+@@ -29,7 +29,7 @@
+ 		libfreetype.so:print/freetype2 \
+ 		libgstbase-1.0.so:multimedia/gstreamer1 \
+ 		libgstreamer-1.0.so:multimedia/gstreamer1
+-RUN_DEPENDS=	geoclue>=0:net/geoclue
++#RUN_DEPENDS=	geoclue>=0:net/geoclue
+ 
+ PORTSCOUT=	limit:^2\.4\.
+ 
+@@ -50,7 +50,7 @@
+ INSTALL_TARGET=	install-strip
+ CONFIGURE_ARGS=	--with-gtk=2.0 \
+ 		--enable-svg-fonts \
+-		--enable-geolocation \
++		--disable-geolocation \
+ 		--enable-introspection \
+ 		--disable-webkit2 \
+ 		--with-html-dir=${PREFIX}/share/gtk-doc/html/webkit1
