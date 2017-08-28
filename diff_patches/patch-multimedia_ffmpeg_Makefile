@@ -1,12 +1,28 @@
---- /usr/ports/multimedia/ffmpeg/Makefile	2017-08-15 17:00:32.000000000 -0500
-+++ /root/FreeBSD-Mod-makefiles/Mod-Makefiles/multimedia_ffmpeg_Makefile	2017-08-22 00:16:05.571287000 -0500
-@@ -86,7 +86,8 @@
- # alsa
- ALSA_CONFIGURE_OFF=	--disable-indev=alsa \
- 			--disable-outdev=alsa
--ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
-+ALSA_LIB_DEPENDS=       libasound.so:audio/alsa-lib
-+ALSA_RUN_DEPENDS=       ${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-plugins
- 
- # Opencore AMR NB
- AMR_NB_LIB_DEPENDS=	libopencore-amrnb.so:audio/opencore-amr
+*** /usr/ports/multimedia/ffmpeg/Makefile	2017-08-15 17:00:32.000000000 -0500
+--- /root/FreeBSD-Mod-makefiles/Mod-Makefiles/multimedia_ffmpeg_Makefile	2017-08-28 02:32:43.517226000 -0500
+***************
+*** 84,94 ****
+  OPTIONS_SUB=	yes
+  
+  # alsa
+  ALSA_CONFIGURE_OFF=	--disable-indev=alsa \
+  			--disable-outdev=alsa
+! ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
+  
+  # Opencore AMR NB
+  AMR_NB_LIB_DEPENDS=	libopencore-amrnb.so:audio/opencore-amr
+  AMR_NB_CONFIGURE_ENABLE=	libopencore-amrnb
+  AMR_NB_IMPLIES=		GPL3
+--- 84,95 ----
+  OPTIONS_SUB=	yes
+  
+  # alsa
+  ALSA_CONFIGURE_OFF=	--disable-indev=alsa \
+  			--disable-outdev=alsa
+! ALSA_LIB_DEPENDS=       libasound.so:audio/alsa-lib
+! ALSA_RUN_DEPENDS=       ${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-plugins
+  
+  # Opencore AMR NB
+  AMR_NB_LIB_DEPENDS=	libopencore-amrnb.so:audio/opencore-amr
+  AMR_NB_CONFIGURE_ENABLE=	libopencore-amrnb
+  AMR_NB_IMPLIES=		GPL3

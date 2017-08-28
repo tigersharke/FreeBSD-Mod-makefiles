@@ -1,31 +1,79 @@
---- /usr/ports/www/webkit-gtk2/Makefile	2017-05-23 00:03:14.000000000 -0500
-+++ /root/FreeBSD-Mod-makefiles/Mod-Makefiles/www_webkit-gtk2_Makefile	2017-06-27 02:37:22.673570000 -0500
-@@ -14,8 +14,8 @@
- 
- BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
- 		p5-Switch>0:lang/p5-Switch \
--		python:lang/python \
--		geoclue>=0:net/geoclue
-+		python:lang/python #\
-+#		geoclue>=0:net/geoclue
- LIB_DEPENDS=	libenchant.so:textproc/enchant \
- 		libsecret-1.so:security/libsecret \
- 		libicutu.so:devel/icu \
-@@ -29,7 +29,7 @@
- 		libfreetype.so:print/freetype2 \
- 		libgstbase-1.0.so:multimedia/gstreamer1 \
- 		libgstreamer-1.0.so:multimedia/gstreamer1
--RUN_DEPENDS=	geoclue>=0:net/geoclue
-+#RUN_DEPENDS=	geoclue>=0:net/geoclue
- 
- PORTSCOUT=	limit:^2\.4\.
- 
-@@ -50,7 +50,7 @@
- INSTALL_TARGET=	install-strip
- CONFIGURE_ARGS=	--with-gtk=2.0 \
- 		--enable-svg-fonts \
--		--enable-geolocation \
-+		--disable-geolocation \
- 		--enable-introspection \
- 		--disable-webkit2 \
- 		--with-html-dir=${PREFIX}/share/gtk-doc/html/webkit1
+*** /usr/ports/www/webkit-gtk2/Makefile	2017-05-23 00:03:14.000000000 -0500
+--- /root/FreeBSD-Mod-makefiles/Mod-Makefiles/www_webkit-gtk2_Makefile	2017-08-28 02:32:43.507633000 -0500
+***************
+*** 12,23 ****
+  MAINTAINER=	gnome@FreeBSD.org
+  COMMENT=	Opensource browser engine using the GTK+ 2 toolkit
+  
+  BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
+  		p5-Switch>0:lang/p5-Switch \
+! 		python:lang/python \
+! 		geoclue>=0:net/geoclue
+  LIB_DEPENDS=	libenchant.so:textproc/enchant \
+  		libsecret-1.so:security/libsecret \
+  		libicutu.so:devel/icu \
+  		libharfbuzz.so:print/harfbuzz \
+  		libharfbuzz-icu.so:print/harfbuzz-icu \
+--- 12,23 ----
+  MAINTAINER=	gnome@FreeBSD.org
+  COMMENT=	Opensource browser engine using the GTK+ 2 toolkit
+  
+  BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
+  		p5-Switch>0:lang/p5-Switch \
+! 		python:lang/python #\
+! #		geoclue>=0:net/geoclue
+  LIB_DEPENDS=	libenchant.so:textproc/enchant \
+  		libsecret-1.so:security/libsecret \
+  		libicutu.so:devel/icu \
+  		libharfbuzz.so:print/harfbuzz \
+  		libharfbuzz-icu.so:print/harfbuzz-icu \
+***************
+*** 27,37 ****
+  		libsoup-2.4.so:devel/libsoup \
+  		libfontconfig.so:x11-fonts/fontconfig \
+  		libfreetype.so:print/freetype2 \
+  		libgstbase-1.0.so:multimedia/gstreamer1 \
+  		libgstreamer-1.0.so:multimedia/gstreamer1
+! RUN_DEPENDS=	geoclue>=0:net/geoclue
+  
+  PORTSCOUT=	limit:^2\.4\.
+  
+  USE_GSTREAMER1=	yes
+  USE_XORG=	x11 xcomposite xdamage xfixes xrender xt
+--- 27,37 ----
+  		libsoup-2.4.so:devel/libsoup \
+  		libfontconfig.so:x11-fonts/fontconfig \
+  		libfreetype.so:print/freetype2 \
+  		libgstbase-1.0.so:multimedia/gstreamer1 \
+  		libgstreamer-1.0.so:multimedia/gstreamer1
+! #RUN_DEPENDS=	geoclue>=0:net/geoclue
+  
+  PORTSCOUT=	limit:^2\.4\.
+  
+  USE_GSTREAMER1=	yes
+  USE_XORG=	x11 xcomposite xdamage xfixes xrender xt
+***************
+*** 48,58 ****
+  CONFIGURE_ENV=	AR=/usr/bin/ar \
+  		ac_cv_path_DOLT_BASH=""
+  INSTALL_TARGET=	install-strip
+  CONFIGURE_ARGS=	--with-gtk=2.0 \
+  		--enable-svg-fonts \
+! 		--enable-geolocation \
+  		--enable-introspection \
+  		--disable-webkit2 \
+  		--with-html-dir=${PREFIX}/share/gtk-doc/html/webkit1
+  MAKEFILE=	GNUmakefile
+  MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
+--- 48,58 ----
+  CONFIGURE_ENV=	AR=/usr/bin/ar \
+  		ac_cv_path_DOLT_BASH=""
+  INSTALL_TARGET=	install-strip
+  CONFIGURE_ARGS=	--with-gtk=2.0 \
+  		--enable-svg-fonts \
+! 		--disable-geolocation \
+  		--enable-introspection \
+  		--disable-webkit2 \
+  		--with-html-dir=${PREFIX}/share/gtk-doc/html/webkit1
+  MAKEFILE=	GNUmakefile
+  MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}

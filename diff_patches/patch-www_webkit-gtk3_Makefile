@@ -1,31 +1,72 @@
---- /usr/ports/www/webkit-gtk3/Makefile	2017-05-23 00:03:14.000000000 -0500
-+++ /root/FreeBSD-Mod-makefiles/Mod-Makefiles/www_webkit-gtk3_Makefile	2017-06-27 02:37:51.504304000 -0500
-@@ -14,8 +14,8 @@
- 
- BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
- 		p5-Switch>0:lang/p5-Switch \
--		python:lang/python \
--		geoclue>=0:net/geoclue
-+                python:lang/python #\
-+#               geoclue>=0:net/geoclue
- LIB_DEPENDS=	libenchant.so:textproc/enchant \
- 		libsecret-1.so:security/libsecret \
- 		libicutu.so:devel/icu \
-@@ -24,7 +24,7 @@
- 		libwebp.so:graphics/webp \
- 		libcurl.so:ftp/curl \
- 		libsoup-2.4.so:devel/libsoup
--RUN_DEPENDS=	geoclue>=0:net/geoclue
-+#RUN_DEPENDS=	geoclue>=0:net/geoclue
- 
- PORTSCOUT=	limit:^2\.4\.
- 
-@@ -45,7 +45,7 @@
- INSTALL_TARGET=	install-strip
- CONFIGURE_ARGS=	--with-gtk=3.0 \
- 		--enable-svg-fonts \
--		--enable-geolocation \
-+		--disable-geolocation \
- 		--enable-webkit2 \
- 		--enable-introspection
- MAKEFILE=	GNUmakefile
+*** /usr/ports/www/webkit-gtk3/Makefile	2017-05-23 00:03:14.000000000 -0500
+--- /root/FreeBSD-Mod-makefiles/Mod-Makefiles/www_webkit-gtk3_Makefile	2017-08-28 02:32:43.509987000 -0500
+***************
+*** 12,32 ****
+  MAINTAINER=	gnome@FreeBSD.org
+  COMMENT=	Opensource browser engine using the GTK+ 3 toolkit
+  
+  BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
+  		p5-Switch>0:lang/p5-Switch \
+! 		python:lang/python \
+! 		geoclue>=0:net/geoclue
+  LIB_DEPENDS=	libenchant.so:textproc/enchant \
+  		libsecret-1.so:security/libsecret \
+  		libicutu.so:devel/icu \
+  		libharfbuzz.so:print/harfbuzz \
+  		libharfbuzz-icu.so:print/harfbuzz-icu \
+  		libwebp.so:graphics/webp \
+  		libcurl.so:ftp/curl \
+  		libsoup-2.4.so:devel/libsoup
+! RUN_DEPENDS=	geoclue>=0:net/geoclue
+  
+  PORTSCOUT=	limit:^2\.4\.
+  
+  USE_GSTREAMER1=	yes
+  USE_XORG=	xt xdamage xcomposite
+--- 12,32 ----
+  MAINTAINER=	gnome@FreeBSD.org
+  COMMENT=	Opensource browser engine using the GTK+ 3 toolkit
+  
+  BUILD_DEPENDS=	gtkdoc-rebase:textproc/gtk-doc \
+  		p5-Switch>0:lang/p5-Switch \
+!                 python:lang/python #\
+! #               geoclue>=0:net/geoclue
+  LIB_DEPENDS=	libenchant.so:textproc/enchant \
+  		libsecret-1.so:security/libsecret \
+  		libicutu.so:devel/icu \
+  		libharfbuzz.so:print/harfbuzz \
+  		libharfbuzz-icu.so:print/harfbuzz-icu \
+  		libwebp.so:graphics/webp \
+  		libcurl.so:ftp/curl \
+  		libsoup-2.4.so:devel/libsoup
+! #RUN_DEPENDS=	geoclue>=0:net/geoclue
+  
+  PORTSCOUT=	limit:^2\.4\.
+  
+  USE_GSTREAMER1=	yes
+  USE_XORG=	xt xdamage xcomposite
+***************
+*** 43,53 ****
+  CONFIGURE_ENV=	AR=/usr/bin/ar \
+  		ac_cv_path_DOLT_BASH=""
+  INSTALL_TARGET=	install-strip
+  CONFIGURE_ARGS=	--with-gtk=3.0 \
+  		--enable-svg-fonts \
+! 		--enable-geolocation \
+  		--enable-webkit2 \
+  		--enable-introspection
+  MAKEFILE=	GNUmakefile
+  MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
+  
+--- 43,53 ----
+  CONFIGURE_ENV=	AR=/usr/bin/ar \
+  		ac_cv_path_DOLT_BASH=""
+  INSTALL_TARGET=	install-strip
+  CONFIGURE_ARGS=	--with-gtk=3.0 \
+  		--enable-svg-fonts \
+! 		--disable-geolocation \
+  		--enable-webkit2 \
+  		--enable-introspection
+  MAKEFILE=	GNUmakefile
+  MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
+  
