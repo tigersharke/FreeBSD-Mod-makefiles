@@ -1,0 +1,27 @@
+*** /usr/ports/x11/libgnome/Makefile	2018-01-21 20:16:49.656616000 -0600
+--- /root/FreeBSD-Mod-makefiles/Mod-Makefiles/x11_libgnome_Makefile	2018-01-22 14:02:18.633582000 -0600
+***************
+*** 20,30 ****
+  LIB_DEPENDS=	libcanberra-gtk.so:audio/libcanberra
+  RUN_DEPENDS=	rarian-sk-config:textproc/rarian
+  
+  INSTALL_TARGET=	install-strip
+  USE_GNOME=	gnomeprefix intlhack esound libbonobo \
+! 		gnomevfs2 referencehack
+  USES+=		bison gettext gmake libtool:keepla pathfix pkgconfig
+  USE_XORG=	xpm
+  USE_LDCONFIG=	yes
+  GNU_CONFIGURE=	yes
+  CPPFLAGS+=	-I${LOCALBASE}/include
+--- 20,30 ----
+  LIB_DEPENDS=	libcanberra-gtk.so:audio/libcanberra
+  RUN_DEPENDS=	rarian-sk-config:textproc/rarian
+  
+  INSTALL_TARGET=	install-strip
+  USE_GNOME=	gnomeprefix intlhack esound libbonobo \
+! 		referencehack # gnomevfs2 
+  USES+=		bison gettext gmake libtool:keepla pathfix pkgconfig
+  USE_XORG=	xpm
+  USE_LDCONFIG=	yes
+  GNU_CONFIGURE=	yes
+  CPPFLAGS+=	-I${LOCALBASE}/include
