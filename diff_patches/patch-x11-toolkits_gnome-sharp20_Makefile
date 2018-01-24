@@ -1,5 +1,5 @@
-*** /usr/ports/x11-toolkits/gnome-sharp20/Makefile	2018-01-06 02:44:30.000000000 -0600
---- /root/FreeBSD-Mod-makefiles/Mod-Makefiles/x11-toolkits_gnome-sharp20_Makefile	2018-01-22 14:09:20.842627000 -0600
+*** /usr/ports/x11-toolkits/gnome-sharp20/Makefile	2018-01-22 14:10:23.319251000 -0600
+--- /root/FreeBSD-Mod-makefiles/Mod-Makefiles/x11-toolkits_gnome-sharp20_Makefile	2018-01-23 23:12:32.056196000 -0600
 ***************
 *** 16,26 ****
   		libfreetype.so:print/freetype2
@@ -7,7 +7,7 @@
   USES=		autoreconf gmake libtool mono pathfix perl5 pkgconfig shebangfix tar:bzip2
   USE_LDCONFIG=	yes
   USE_GITHUB=	yes
-! USE_GNOME=	cairo gnomevfs2 gtksharp20 librsvg2 vte libgnomeprintui libgnomeui
+! USE_GNOME=	cairo gtksharp20 librsvg2 vte libgnomeprintui libgnomeui gnomevfs2
   USE_PERL5=	run
   USE_XORG=	ice sm
   SHEBANG_GLOB=	*.pl
@@ -19,7 +19,7 @@
   USES=		autoreconf gmake libtool mono pathfix perl5 pkgconfig shebangfix tar:bzip2
   USE_LDCONFIG=	yes
   USE_GITHUB=	yes
-! USE_GNOME=	cairo gtksharp20 librsvg2 vte libgnomeprintui libgnomeui gnomevfs2
+! USE_GNOME=	cairo gtksharp20 librsvg2 vte libgnomeprintui libgnomeui # gnomevfs2
   USE_PERL5=	run
   USE_XORG=	ice sm
   SHEBANG_GLOB=	*.pl
